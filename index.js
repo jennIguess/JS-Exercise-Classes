@@ -59,7 +59,6 @@ class Person {
   toString(){
     return `${this.name}, ${this.age}`;
   }
-
 };
 
 
@@ -88,9 +87,8 @@ class Car {
     this.odometer = 0;
   }
   fill(gallons){
-return (this.tank = this.tank + gallons);
+return this.tank = this.tank + gallons;
   }
-
 };
 
 
@@ -118,8 +116,7 @@ class Lambdasian {
   }
   };
 
-let jenn = new Lambdasian(attributes);
-console.log(jenn.speak());
+
 
 /*
   TASK 4
@@ -135,10 +132,28 @@ console.log(jenn.speak());
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
-
-}
+let instructorAttrs = {name: "Luis", specialty: 'redux', favLanguage: 'JS', catchPhrase: "Don't forget the homies"};
+let student = {name: "Jennifer"};
+class Instructor extends Lambdasian{
+  constructor(instructorAttrs){
+    super(attributes);
+    this.name = instructorAttrs.name;
+    this.age = instructorAttrs.age;
+    this.location = instructorAttrs.location;
+    this.specialty = instructorAttrs.specialty;
+    this.favLanguage = instructorAttrs.favLanguage;
+    this.catchPhrase = instructorAttrs.catchPhrase;
+  }
+  demo(subject){
+    return `Today we will be studying ${subject}`;
+  }
+  student(){
+    name: "Jennifer"
+  }
+  grade(student, subject){
+    return `${student.name} received a perfect grade on ${subject}`; 
+  }  
+};
 
 /*
   TASK 5
@@ -155,10 +170,29 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+let studentObj = {name: "Matt", age: 26, location: "Thousand Oaks", previousBackground: "momma", className: "WebPT19", favSubjects:["html", "CSS"]}
+class Student extends Lambdasian {
+  constructor(studentObj){
+    super(attributes);
+    this.name = studentObj.name;
+    this.age = studentObj.age;
+    this.location = studentObj.location;
+    this.previousBackground = studentObj.previousBackground;
+    this.className = studentObj.className;
+    this.favSubjects = studentObj.favSubjects;
+    
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 
-}
-
+};
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -172,9 +206,27 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+let pmObj = {name: "Luis", specialty: 'redux', favLanguage: 'JS', catchPhrase: "Don't forget the homies", gradClassName: "CS1", favInstructor: "Sean" }
+class ProjectManager extends Instructor {
+  constructor(pmObj){
+    super(instructorAttrs);
+    this.name = pmObj.name;
+    this.age = pmObj.age;
+    this.location = pmObj.location;
+    this.specialty = pmObj.specialty;
+    this.favLanguage = pmObj.favLanguage;
+    this.catchPhrase = pmObj.catchPhrase;
+    this.gradClassName = pmObj.gradClassName;
+    this.favInstructor = pmObj.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}!`
+  }
 
-}
+};
 
 /*
   STRETCH PROBLEM (no tests!)
