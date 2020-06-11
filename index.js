@@ -40,9 +40,28 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
 
-}
+class Person {
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood){
+    if (this.stomach.length <10){
+      this.stomach.push(someFood);
+    }
+  }
+  poop(){
+    this.stomach.length = 0;
+
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
+
+};
+
 
 /*
   TASK 2
@@ -58,9 +77,22 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {
 
-}
+
+
+class Car {
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+return (this.tank = this.tank + gallons);
+  }
+
+};
+
 
 /*
   TASK 3
@@ -74,9 +106,20 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
+let attributes = {name: 'Jennifer', age: 26, location: 'Thousand Oaks'}
 class Lambdasian {
+  constructor(attributes){
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+  speak(){
+    return `Hello, my name is ${this.name}, and I am from ${this.location}.`;
+  }
+  };
 
-}
+let jenn = new Lambdasian(attributes);
+console.log(jenn.speak());
 
 /*
   TASK 4
@@ -93,6 +136,7 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
+
 
 }
 
